@@ -37,7 +37,7 @@ class RecordForm extends React.Component {
 
   render() {
     return(
-      <form className='form-inline'
+      <form className='form-inline RecordForm'
             onSubmit={this.handleSubmit} >
         <div className='form-group'>
           <input type="text"
