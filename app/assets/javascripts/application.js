@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootsrap
+//= require tether
+//= require bootstrap
 //= require turbolinks
 //= require react
 //= require react_ujs
