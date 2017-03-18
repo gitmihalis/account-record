@@ -2,11 +2,12 @@ class Records extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      records: this.props.data
+      records: this.props.data,
     };
 
     this.addRecord = this.addRecord.bind(this);
     this.deleteRecord = this.deleteRecord.bind(this);
+    this.updateRecord = this.updateRecord.bind(this);
     this.calcBalance = this.calcBalance.bind(this);
     this.calcCredits = this.calcCredits.bind(this);
     this.calcDebits = this.calcDebits.bind(this);
@@ -35,6 +36,13 @@ class Records extends React.Component {
   addRecord(record) {
     const records = this.state.records.slice();
     records.push(record);
+    this.setState({ records: records});
+  }
+
+  updateRecord(record, data) {
+    const records = this.state.records;
+    const index = this.state.records.indexOf(record);
+    records.splice(index, 1, data);
     this.setState({ records: records});
   }
 
@@ -72,7 +80,8 @@ class Records extends React.Component {
               {records.map( (record) =>
                 <Record key={record.id} 
                         record={record}
-                        handleDeletedRecord={this.deleteRecord} />
+                        handleDeletedRecord={this.deleteRecord}
+                        handleEditRecord={this.updateRecord} />
               )}
             </tbody>
           </table>

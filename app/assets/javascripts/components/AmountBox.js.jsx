@@ -3,7 +3,7 @@ class AmountBox extends React.Component {
     return (
       <div className="col">
         <div className="card">
-          <div className={"card-header alert alert-" + this.props.type}>
+          <div className={"card-header alert-" + this.props.type}>
             {this.props.text}
           </div>
           <div className="card-block">
