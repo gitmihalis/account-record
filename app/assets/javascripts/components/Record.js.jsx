@@ -1,7 +1,7 @@
 class Record extends React.Component {
   constructor(props) {
     super(props);
-    
+
     this.handleDelete = this.handleDelete.bind(this);
   }
   handleDelete(e) {
@@ -12,7 +12,7 @@ class Record extends React.Component {
       url: '/records/' + record.id,
       dataType: 'JSON',
       success: () =>
-        this.props.handleDeleteRecord(record)
+        this.props.handleDeletedRecord(record)
     });
   }
   render() {

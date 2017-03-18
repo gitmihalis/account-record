@@ -6,6 +6,7 @@ class Records extends React.Component {
     };
 
     this.addRecord = this.addRecord.bind(this);
+    this.deleteRecord = this.deleteRecord.bind(this);
     this.calcBalance = this.calcBalance.bind(this);
     this.calcCredits = this.calcCredits.bind(this);
     this.calcDebits = this.calcDebits.bind(this);
@@ -35,7 +36,14 @@ class Records extends React.Component {
     const records = this.state.records.slice();
     records.push(record);
     this.setState({ records: records});
-  } 
+  }
+
+  deleteRecord(record) {
+    const records = this.state.records.slice();
+    const index = records.indexOf(record);
+    records.splice(index, 1);
+    this.setState({ records: records});
+  }
 
   render() {
     const records = this.state.records;
@@ -62,7 +70,9 @@ class Records extends React.Component {
             </thead>
             <tbody>
               {records.map( (record) =>
-                <Record key={record.id} record={record} />
+                <Record key={record.id} 
+                        record={record}
+                        handleDeletedRecord={this.deleteRecord} />
               )}
             </tbody>
           </table>
