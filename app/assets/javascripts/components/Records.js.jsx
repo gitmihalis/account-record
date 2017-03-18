@@ -47,11 +47,10 @@ class Records extends React.Component {
           <AmountBox type="danger" text="Debit" amount={this.calcDebits()} /> 
           <AmountBox type="info" text="Balance" amount={this.calcBalance()} />  
         </div>
-        <div className="container">
         <RecordForm handleNewRecord={this.addRecord} />
-        </div>
 
         <div className="row">
+          <div className="container">
           <table className='table-bordered table'>
             <thead>
               <tr>
@@ -66,6 +65,7 @@ class Records extends React.Component {
               )}
             </tbody>
           </table>
+          </div>
         </div>
       </div>
     );
