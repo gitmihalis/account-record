@@ -1,6 +1,7 @@
 class RecordForm extends React.Component {
   constructor(props) {
     super(props);
+    // initial values for form inputs
     this.state = {
       title: '',
       date: '',
@@ -12,14 +13,21 @@ class RecordForm extends React.Component {
   }
 
   handleChange(e) {
-    const target = e.target;
-    const name = target.name;
+    const name = e.target.name;
+    const value = e.target.value;
     this.setState({
-      [name]: target.value
+      // computed property name (es6), equivalent to:
+      //  var partialState = {}
+      //  partialState[name] = value
+      //  this.setState(partialState) 
+      [name]: value 
     });
+
+    e.preventDefault();
   }
 
   handleSubmit(e) {
+    // Post changes to server.
     const record = this.state;
     $.post('', {record}, (data) => {
       this.props.handleNewRecord(data);
@@ -28,6 +36,7 @@ class RecordForm extends React.Component {
         date: '',
         amount: '' });
     });
+
     e.preventDefault();
   }
 
