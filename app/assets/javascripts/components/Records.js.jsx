@@ -89,7 +89,7 @@ class Records extends React.Component {
               {records.map( (record) =>
                 <Record key={record.id} 
                         record={record}
-                        handleDeletedRecord={this.deleteRecord}
+                        handleDeleteRecord={this.deleteRecord}
                         handleEditRecord={this.updateRecord} />
               )}
             </tbody>
