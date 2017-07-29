@@ -1,5 +1,7 @@
 # Account Records (w/ React)
 
+![](https://i.imgur.com/QB8S7ap.png)
+
 When the user creates a new record through the horizontal form, it will be appended to the records table
 The user will be able to inline-edit any existing record
 Clicking on any Delete button will remove the associated record from the table
